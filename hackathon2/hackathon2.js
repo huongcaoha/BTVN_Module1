@@ -463,17 +463,17 @@ function renderDataProject() {
               technologyUpdate.value,
               linkGithubUpdate.value
             );
-            if (newProject.nameProject == oddName) {
-              listProjects.splice(indexOdd, 1, newProject);
-              updateDataLocalStorage("listProjects", listProjects);
-              formUpdateProject.style.display = "none";
-              renderDataProject();
-            } else {
-              listProjects.splice(indexProject, 1, newProject);
-              updateDataLocalStorage("listProjects", listProjects);
-              formUpdateProject.style.display = "none";
-              renderDataProject();
-            }
+            // if (newProject.nameProject == oddName) {
+            listProjects.splice(indexOdd, 1, newProject);
+            updateDataLocalStorage("listProjects", listProjects);
+            formUpdateProject.style.display = "none";
+            renderDataProject();
+            // } else {
+            //   listProjects.splice(indexProject, 1, newProject);
+            //   updateDataLocalStorage("listProjects", listProjects);
+            //   formUpdateProject.style.display = "none";
+            //   renderDataProject();
+            // }
           }
         }
       });
