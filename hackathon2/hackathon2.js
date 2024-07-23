@@ -181,7 +181,7 @@ function renderDataSkill() {
 
   // xử lý add new skill
   buttonAdd.addEventListener("click", function () {
-    if (!nameSkill.value || !yearExp || !createImage) {
+    if (!nameSkill.value || !yearExp.value || !createImage.value) {
       alert("Vui lòng không bỏ trống ô nào !");
     } else {
       let check = false;
@@ -225,41 +225,6 @@ function renderDataProject() {
     }
   }
 
-  // let project1 = new Project(
-  //   1,
-  //   "Auto Drive Project 1",
-  //   "https://th.bing.com/th/id/OIP.OVUtPepwEqUuUIUtwO8lngHaH3?w=156&h=180&c=7&r=0&o=5&pid=1.7",
-  //   "ANGULAR , REACT , JQUERY",
-  //   "https://github.com/huongcaoha/"
-  // );
-  // let project2 = new Project(
-  //   2,
-  //   "Auto Drive Project 2",
-  //   "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/Bootstrap_logo.svg/2560px-Bootstrap_logo.svg.png",
-  //   "BOOTSTRAP , CSS , JAVASCRIPT",
-  //   "https://github.com/huongcaoha/"
-  // );
-  // let project3 = new Project(
-  //   3,
-  //   "Auto Drive Project 3",
-  //   "https://cdn.icon-icons.com/icons2/2415/PNG/512/mongodb_original_logo_icon_146424.png",
-  //   "MONGODB , JAVASCRIPT",
-  //   "https://github.com/huongcaoha/"
-  // );
-  // let project4 = new Project(
-  //   4,
-  //   "Auto Drive Project 4",
-  //   "https://seekvectors.com/files/download/vue-9-01.png",
-  //   "VUE , JAVASCRIPT",
-  //   "https://github.com/huongcaoha/"
-  // );
-  // let project5 = new Project(
-  //   5,
-  //   "Auto Drive Project 5",
-  //   "https://th.bing.com/th?id=OIP.-BpvNzwkSx9w9LdAK1qzcgHaGo&w=264&h=236&c=8&rs=1&qlt=90&o=6&pid=3.1&rm=2",
-  //   "REACT , JAVASCRIPT",
-  //   "https://github.com/huongcaoha/"
-  // );
   let project1 = new Project(
     1,
     "Shoppee",
@@ -299,11 +264,6 @@ function renderDataProject() {
   });
 
   // xử lý sự kiện ẩn form create project
-  window.addEventListener("click", function (e) {
-    if (e.target == formCreateProject) {
-      formCreateProject.style.display = "none";
-    }
-  });
 
   let buttonClose = document.getElementById("buttonCloseProject");
   buttonClose.addEventListener("click", function () {
@@ -335,6 +295,7 @@ function renderDataProject() {
         (project) => project.nameProject == nameProject.value
       );
       if (index != -1) {
+        console.log(index);
         alert("Project đã tồn tại !");
       } else {
         let idProject = 1;
@@ -382,7 +343,7 @@ function renderDataProject() {
         let index = listProjects.findIndex((project) => project.id == id);
         listProjects.splice(index, 1);
         updateDataLocalStorage("listProjects", listProjects);
-        renderDataProject();
+        window.location.reload();
       }
     });
   }
@@ -474,27 +435,34 @@ function renderDataProject() {
         let linkGithubUpdate = document.getElementById("linkGithubUpdate");
         let idProject = buttonUpdateProjectUpdate.getAttribute("title");
         let indexProject = listProjects.findIndex(
-          (project) => project.id == idProject
+          (project) => project.nameProject == nameProjectUpdate.value
         );
-        if (indexProject != -1) {
-          alert("Tên project đã tồn tại !");
+        if (
+          !nameProjectUpdate.value ||
+          !imageProjectUpdate.value ||
+          !technologyUpdate.value ||
+          !linkGithubUpdate.value
+        ) {
+          alert("Vùi lòng không bỏ trống ô dữ liệu nào !");
         } else {
-          let newProject = new Project(
-            idProject,
-            nameProjectUpdate.value,
-            imageProjectUpdate.value,
-            technologyUpdate.value,
-            linkGithubUpdate.value
-          );
-          listProjects.splice(indexProject, 1, newProject);
-          updateDataLocalStorage("listProjects", listProjects);
-          formUpdateProject.style.display = "none";
-          renderDataProject();
+          if (indexProject != -1) {
+            alert("Tên project đã tồn tại !");
+          } else {
+            let newProject = new Project(
+              idProject,
+              nameProjectUpdate.value,
+              imageProjectUpdate.value,
+              technologyUpdate.value,
+              linkGithubUpdate.value
+            );
+            listProjects.splice(indexProject, 1, newProject);
+            updateDataLocalStorage("listProjects", listProjects);
+            formUpdateProject.style.display = "none";
+            renderDataProject();
+          }
         }
       });
     });
   }
-
-  // xử lý update project
 }
 renderDataProject();
