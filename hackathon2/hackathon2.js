@@ -407,7 +407,7 @@ function renderDataProject() {
               <br />
 
               <button id="buttonCancelProjectUpdate">Hủy</button>
-              <button id="buttonUpdateProjectUpdate" title="${project.id}">Sửa</button>
+              <button id="buttonUpdateProjectUpdate" title="${project.id}" projectName="${project.nameProject}">Sửa</button>
             </div>`;
 
       // xử lý ẩn form update project
@@ -434,8 +434,16 @@ function renderDataProject() {
         let technologyUpdate = document.getElementById("technologyUpdate");
         let linkGithubUpdate = document.getElementById("linkGithubUpdate");
         let idProject = buttonUpdateProjectUpdate.getAttribute("title");
-        let indexProject = listProjects.findIndex(
+        let oddName = buttonUpdateProjectUpdate.getAttribute("projectName");
+        let newArr = listProjects.filter(
+          (project) => project.nameProject != oddName
+        );
+
+        let indexProject = newArr.findIndex(
           (project) => project.nameProject == nameProjectUpdate.value
+        );
+        let indexOdd = listProjects.findIndex(
+          (project) => project.nameProject == oddName
         );
         if (
           !nameProjectUpdate.value ||
@@ -443,7 +451,7 @@ function renderDataProject() {
           !technologyUpdate.value ||
           !linkGithubUpdate.value
         ) {
-          alert("Vùi lòng không bỏ trống ô dữ liệu nào !");
+          alert("Vui lòng không bỏ trống ô dữ liệu nào !");
         } else {
           if (indexProject != -1) {
             alert("Tên project đã tồn tại !");
@@ -455,10 +463,17 @@ function renderDataProject() {
               technologyUpdate.value,
               linkGithubUpdate.value
             );
-            listProjects.splice(indexProject, 1, newProject);
-            updateDataLocalStorage("listProjects", listProjects);
-            formUpdateProject.style.display = "none";
-            renderDataProject();
+            if (newProject.nameProject == oddName) {
+              listProjects.splice(indexOdd, 1, newProject);
+              updateDataLocalStorage("listProjects", listProjects);
+              formUpdateProject.style.display = "none";
+              renderDataProject();
+            } else {
+              listProjects.splice(indexProject, 1, newProject);
+              updateDataLocalStorage("listProjects", listProjects);
+              formUpdateProject.style.display = "none";
+              renderDataProject();
+            }
           }
         }
       });
