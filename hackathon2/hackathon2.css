@@ -1,0 +1,397 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.styleNav {
+    background-color: rgba(255, 255, 255, 0.3);
+}
+
+header {
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    gap: 30px;
+    width: 100%;
+    height: 10vh;
+    background-color: #dadada;
+    line-height: 10vh;
+    padding-right: 20px;
+
+    #avatar {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+
+    }
+
+    #homePage {
+        text-decoration: none;
+        font-size: 20px;
+        background-color: #fdba74;
+        height: 6vh;
+        line-height: 6vh;
+        padding: 0 15px;
+        border-radius: 10px;
+
+    }
+}
+
+main {
+    display: flex;
+
+    .sectionLeft {
+        width: 20%;
+        height: 90vh;
+        background-color: #041434;
+        color: white;
+
+        ul {
+            list-style-type: none;
+            font-size: 25px;
+
+            li {
+                line-height: 53px;
+                padding-left: 20px;
+            }
+
+            #navSkill,
+            #navProject {
+                cursor: pointer;
+            }
+        }
+    }
+
+    .sectionRight {
+        width: 80%;
+        height: 90vh;
+        font-size: 20px;
+
+        .skill {
+            padding: 50px;
+            position: relative;
+
+            #addSkill {
+                width: 200px;
+                height: 5vh;
+                background-color: #2563eb;
+                border-radius: 10px;
+                color: white;
+                font-size: 20px;
+            }
+
+            .title {
+                display: flex;
+                justify-content: space-between;
+                margin-bottom: 50px;
+            }
+
+            table,
+            tr,
+            th,
+            td {
+                border: 1px solid black;
+                border-collapse: collapse;
+            }
+
+            #tableSkill {
+                text-align: center;
+                width: 100%;
+
+                th {
+                    padding: 10px;
+                }
+
+                td {}
+
+                #bodySkill {
+                    td {
+                        padding: 10px 0;
+
+                        img {
+                            width: 50px;
+                            height: 50px;
+                        }
+
+                        .deleteSkill {
+                            padding: 5px 10px;
+                            background-color: white;
+                            border: 1px solid #ffa3a4;
+                            color: #ffa3a4;
+                            border-radius: 5px;
+                            cursor: pointer;
+                        }
+                    }
+                }
+            }
+
+            .formCreateSkill {
+                display: none;
+                width: 100%;
+                height: 90vh;
+                top: 0;
+                left: 0;
+                position: absolute;
+                background-color: rgba(0, 0, 0, 0.5);
+
+                .tableCreateSkill {
+
+                    width: 40%;
+                    height: 50vh;
+                    background-color: white;
+                    margin: 10% auto;
+                    padding: 15px;
+                    font-size: 22px;
+                    line-height: 50px;
+                    border-radius: 10px;
+
+                    input {
+                        width: 100%;
+                        height: 4vh;
+                        border-radius: 10px;
+                    }
+
+                    .titleForm {
+                        display: flex;
+                        justify-content: space-between;
+
+                    }
+
+                    #buttonCancel {
+                        width: 70px;
+                        height: 4vh;
+                        background-color: white;
+                        border-radius: 10px;
+                        margin-right: 15px;
+                        margin-left: 0;
+                        margin-top: 15px;
+                    }
+
+                    #buttonAdd {
+                        width: 100px;
+                        height: 4vh;
+                        background-color: #2563eb;
+                        border-radius: 10px;
+
+                    }
+
+                }
+            }
+        }
+
+        .project {
+            padding: 50px;
+            position: relative;
+
+            #addProject {
+                width: 200px;
+                height: 5vh;
+                background-color: #2563eb;
+                border-radius: 10px;
+                color: white;
+                font-size: 20px;
+            }
+
+            .title {
+                display: flex;
+                justify-content: space-between;
+                margin-bottom: 50px;
+            }
+
+            table,
+            tr,
+            th,
+            td {
+                border: 1px solid black;
+                border-collapse: collapse;
+            }
+
+            #tableProject {
+                text-align: center;
+                width: 100%;
+
+                th {
+                    padding: 10px;
+                }
+
+                td {}
+
+                #bodyProject {
+                    td {
+                        padding: 10px 0;
+
+                        img {
+                            width: 50px;
+                            height: 50px;
+                        }
+
+                        .buttonDelete {
+                            padding: 5px 10px;
+                            background-color: white;
+                            border: 1px solid #ffa3a4;
+                            color: #ffa3a4;
+                            border-radius: 5px;
+                            cursor: pointer;
+                        }
+
+                        .buttonUpdate {
+                            background-color: #fdba74;
+                            padding: 5px 10px;
+                            border-radius: 5px;
+                            border: none;
+                            cursor: pointer;
+                        }
+                    }
+                }
+            }
+
+            .formCreateProject {
+                display: none;
+                width: 100%;
+                height: 90vh;
+                top: 0;
+                left: 0;
+                position: absolute;
+                background-color: rgba(0, 0, 0, 0.5);
+
+                .tableCreateProject {
+
+                    width: 40%;
+                    height: 60vh;
+                    background-color: white;
+                    margin: 10% auto;
+                    padding: 15px;
+                    font-size: 22px;
+                    line-height: 50px;
+                    border-radius: 10px;
+
+                    input {
+                        width: 100%;
+                        height: 4vh;
+                        border-radius: 10px;
+                    }
+
+                    .titleForm {
+                        display: flex;
+                        justify-content: space-between;
+
+                    }
+
+                    #buttonCancelProject {
+                        width: 70px;
+                        height: 4vh;
+                        background-color: white;
+                        border-radius: 10px;
+                        margin-right: 15px;
+                        margin-left: 0;
+                        margin-top: 15px;
+                    }
+
+                    #buttonAddProject {
+                        width: 100px;
+                        height: 4vh;
+                        background-color: #2563eb;
+                        border-radius: 10px;
+
+                    }
+
+                }
+            }
+
+            .formUpdateProject {
+                display: none;
+                width: 100%;
+                height: 90vh;
+                top: 0;
+                left: 0;
+                position: absolute;
+                background-color: rgba(0, 0, 0, 0.5);
+
+                .tableUpdateProject {
+
+                    width: 40%;
+                    height: 60vh;
+                    background-color: white;
+                    margin: 10% auto;
+                    padding: 15px;
+                    font-size: 22px;
+                    line-height: 50px;
+                    border-radius: 10px;
+
+                    input {
+                        width: 100%;
+                        height: 4vh;
+                        border-radius: 10px;
+                    }
+
+                    .titleForm {
+                        display: flex;
+                        justify-content: space-between;
+
+                    }
+
+                    #buttonCancelProjectUpdate {
+                        width: 70px;
+                        height: 4vh;
+                        background-color: white;
+                        border-radius: 10px;
+                        margin-right: 15px;
+                        margin-left: 0;
+                        margin-top: 15px;
+                    }
+
+                    #buttonUpdateProjectUpdate {
+                        width: 100px;
+                        height: 4vh;
+                        background-color: #2563eb;
+                        border-radius: 10px;
+
+                    }
+
+                }
+            }
+        }
+    }
+}
+
+@media (max-width : 768px) {
+    header {
+        display: flex;
+        justify-content: space-between;
+
+        .welcome {
+            display: none;
+        }
+    }
+
+    main {
+        display: flex;
+        flex-direction: column;
+
+        .sectionLeft {
+            width: 100%;
+            height: 10vh;
+
+            ul {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                padding: 2vh 0;
+
+                li {
+                    margin: 0 auto;
+                }
+            }
+        }
+    }
+}
+
+@media (max-width : 1024px) {}
+
+@media (max-width : 1200px) {
+    header {
+        display: flex;
+        justify-content: space-between;
+    }
+}

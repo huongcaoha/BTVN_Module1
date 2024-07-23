@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script
+      src="https://kit.fontawesome.com/277e9b3392.js"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="stylesheet" href="./hackathon2.css" />
+  </head>
+  <body>
+    <header>
+      <a href="./hackathon.html" id="homePage">HomePage</a>
+      <p class="welcome">Chào mừng bạn đã quay trở lại</p>
+      <h3>Nguyễn Công Hưởng</h3>
+      <img src="./image/avatarMe.jpg" alt="avatar" id="avatar" />
+      <i class="fa-solid fa-chevron-down"></i>
+    </header>
+
+    <main>
+      <div class="sectionLeft">
+        <ul>
+          <li id="navSkill">Kỹ Năng</li>
+          <li id="navProject">Dự Án</li>
+        </ul>
+      </div>
+      <div class="sectionRight">
+        <div class="skill">
+          <div class="title">
+            <h1>Kỹ năng</h1>
+            <button id="addSkill">Thêm mới kỹ năng</button>
+          </div>
+
+          <table id="tableSkill">
+            <tr>
+              <th>STT</th>
+              <th>Tên kỹ năng</th>
+              <th>Hình ảnh</th>
+              <th>Năm kinh nghiệm</th>
+              <th>Ngày thêm</th>
+              <th>Chức năng</th>
+            </tr>
+
+            <tbody id="bodySkill"></tbody>
+          </table>
+
+          <div class="formCreateSkill">
+            <div class="tableCreateSkill">
+              <div class="titleForm">
+                <h2>Thêm mới kỹ năng</h2>
+                <p style="cursor: pointer; font-size: 30px" id="buttonClose">
+                  x
+                </p>
+              </div>
+
+              <label for="nameSkill">Tên kỹ năng:</label><br />
+              <input type="text" name="nameSkill" id="nameSkill" />
+              <br />
+
+              <label for="yearExp">Năm kinh nghiệm:</label><br />
+              <input type="text" name="yearExp" id="yearExp" />
+              <br />
+
+              <label for="createImage">Link hình ảnh:</label><br />
+              <input type="text" name="createImage" id="createImage" />
+              <br />
+
+              <button id="buttonCancel">Hủy</button>
+              <button id="buttonAdd">Thêm</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="project">
+          <div class="title">
+            <h1>Dự Án</h1>
+            <button id="addProject">Thêm mới dự án</button>
+          </div>
+
+          <table id="tableProject">
+            <tr>
+              <th>STT</th>
+              <th>Tên dự án</th>
+              <th>Hình ảnh</th>
+              <th>Công nghệ</th>
+              <th>Chức năng</th>
+            </tr>
+
+            <tbody id="bodyProject"></tbody>
+          </table>
+
+          <div class="formCreateProject">
+            <div class="tableCreateProject">
+              <div class="titleForm">
+                <h2>Thêm mới dự án</h2>
+                <p
+                  style="cursor: pointer; font-size: 30px"
+                  id="buttonCloseProject"
+                >
+                  x
+                </p>
+              </div>
+
+              <label for="nameProject">Tên dự án:</label><br />
+              <input type="text" name="nameProject" id="nameProject" />
+              <br />
+
+              <label for="imageProject">Link hình ảnh:</label><br />
+              <input type="text" name="imageProject" id="imageProject" />
+              <br />
+
+              <label for="technology">Công nghệ sử dụng:</label><br />
+              <input type="text" name="technology" id="technology" />
+              <br />
+
+              <label for="linkGithub">Link github:</label><br />
+              <input type="text" name="linkGithub" id="linkGithub" />
+              <br />
+
+              <button id="buttonCancelProject">Hủy</button>
+              <button id="buttonAddProject">Thêm</button>
+            </div>
+          </div>
+
+          <!-- form update project -->
+          <div class="formUpdateProject"></div>
+        </div>
+      </div>
+    </main>
+
+    <footer></footer>
+    <script src="./hackathon2.js"></script>
+  </body>
+</html>

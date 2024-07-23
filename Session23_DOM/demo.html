@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MoMo QR Code Generator</title>
+    <style>
+      body {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+        margin: 0;
+        font-family: Arial, sans-serif;
+      }
+
+      #qr-code {
+        max-width: 300px;
+        margin-bottom: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>MoMo QR Code for Payment</h1>
+    <div id="qr-code"></div>
+    <p>
+      Phone Number: 0123456789<br />
+      Account Holder: John Doe
+    </p>
+    <img
+      src="https://api.vietqr.io/image/970415-113366668888-AZ9OO6e.jpg?amount=0"
+      alt=""
+    />
+
+    <script src="https://api.vietqr.io/image/970415-113366668888-AZ9OO6e.jpg?amount=0"></script>
+    <script>
+      // Define the payment details
+      const paymentDetails = {
+        phoneNumber: "0123456789",
+        accountHolder: "John Doe",
+      };
+
+      // Generate the QR code
+      const qrCode = new QRCode(document.getElementById("qr-code"), {
+        text: `momo://pay?phone=${
+          paymentDetails.phoneNumber
+        }&name=${encodeURIComponent(paymentDetails.accountHolder)}`,
+        width: 256,
+        height: 256,
+        colorDark: "#000000",
+        colorLight: "#ffffff",
+        correctLevel: QRCode.CorrectLevel.H,
+      });
+    </script>
+  </body>
+</html>
